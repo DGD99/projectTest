@@ -738,7 +738,7 @@ Index Of Script
             var txt = $(".icon").hasClass('icon-grid') ? 'List' : 'Grid';
             $('.icon').toggleClass('icon-grid');
             $(".label").text(txt);
-          })
+          });
 
           /*---------- */
           $(".dropdown-menu li a").click(function(){
@@ -749,10 +749,9 @@ Index Of Script
           });
 
         
-        $('.ri-file-upload-line').click(function(){
-
-
-        })
+        $('.ri-file-upload-line2').click(function(){
+            $('#file-upload-input').trigger('click');
+        });
     });
 
 })(jQuery);
