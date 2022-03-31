@@ -1,4 +1,10 @@
+<?php
+        $con=mysqli_connect("localhost","root","TEst!234","sqldb") or die("접속실패");
+        $sql="SELECT filename, filesize FROM filetbl";
 
+        $ret = mysqli_query($con,$sql);
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -56,7 +62,7 @@
                       </div>
                       <ul class="dropdown-menu">
                           <li><div class="item"><i class="ri-folder-add-line pr-3"></i>New Folder</div></li>
-                        <form action="page-alexa.html" method="post" enctype="multipart/form-data" id="fileform" >
+                        <form action="file_result.php" method="post" enctype="multipart/form-data" id="fileform" >
                             <input type="file" name="file" id="file-upload-input" style="display: none;" multiple>
                           <li><div class="item ri-file-upload-line2"><i class="ri-file-upload-line pr-3"></i>Upload Files</div></li>
                         </form>
@@ -85,7 +91,7 @@
                           </a>
                           <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                   <li class="active">
-                                          <a href="../backend/page-alexa.html">
+                                          <a href="../backend/page-alexa.php">
                                               <i class="las la-folder"></i><span>userid_folder</span>
                                           </a>
                                   </li>
@@ -491,6 +497,41 @@
                                                 </div>
                                             </td>
                                         </tr>
+					<?php   // LOOP TILL END OF DATA
+                                         while($rows=mysqli_fetch_assoc($ret))
+                                        {
+                                        ?>
+                                        <tr>
+                                             <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="mr-3">
+                                                        <a href="#"><i class="las la-file la-2x"></i></a>
+                                                    </div>
+                                                    <?php echo $rows['filename'];?>
+                                                </div>
+                                            </td>
+                                           <td>Me</td>
+                                            <td>jan 21, 2020 me</td>
+                                            <td><?php echo $rows['filesize'];?></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <span class="dropdown-toggle" id="dropdownMenuButton6" data-toggle="dropdown">
+                                                        <i class="ri-more-fill"></i>
+                                                    </span>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton6">
+                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                         }
+						mysqli_close($con);
+                                        ?>
                                     </tbody>
                                     </table>
                                 </div>

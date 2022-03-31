@@ -54,7 +54,7 @@
 ?>
 	<script>
 		alet('업로드 실패');
-                location.href = "page-alexa.html";
+                location.href = "page-alexa.php";
 	</script>
 <?php
 	
