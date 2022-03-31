@@ -752,6 +752,12 @@ Index Of Script
         $('.ri-file-upload-line2').click(function(){
             $('#file-upload-input').trigger('click');
         });
+
+        $('#file-upload-input').change(function() {
+            $('#fileform').submit();
+          });
+
+
     });
 
 })(jQuery);
