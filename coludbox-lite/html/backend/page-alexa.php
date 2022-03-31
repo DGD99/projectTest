@@ -512,7 +512,7 @@
                                             </td>
                                            <td>Me</td>
                                             <td>jan 21, 2020 me</td>
-                                            <td><?php echo $rows['filesize'];?></td>
+                                            <td><?php echo $rows['filesize'];?> MB</td>
                                             <td>
                                                 <div class="dropdown">
                                                     <span class="dropdown-toggle" id="dropdownMenuButton6" data-toggle="dropdown">
