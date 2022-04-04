@@ -26,7 +26,7 @@
        
             		echo "Upload: " . $name . "<br>";
             		echo "Type: " . $type . "<br>";
-            		echo "Size: " . (int)($size / 1024 / 1024) . " Mb<br>";
+            		$size=(int)($size / 1024 / 1024);
             		echo "Stored in: " . $tmp_name;
             		if (file_exists( "/" . $username . "/upload/" . $name)) {
                 		echo $name . " already exists. ";
@@ -46,12 +46,10 @@
 	    			}
 	   		}
 ?>
-	<!--
 	<script>
 		alert('업로드 성공');
                 location.href = "page-alexa.php";
 	</script>
-	--!>
 <?php
     	  }
 	}
