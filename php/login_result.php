@@ -28,7 +28,7 @@ $con=mysqli_connect("localhost","root","TEst!234","sqldb") or die("접속실패"
 	if($row['userpw'] === $userpw ) {
                 echo "로그인  완료";
 		$_SESSION["username"]=$row['username'];
-		//echo $_SESSION["newsession"];
+		$_SESSION["useremail"]=$row['useremail'];
 ?>
 	<script>
                 location.href = "page-alexa.php";

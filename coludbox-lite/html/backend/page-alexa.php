@@ -4,7 +4,7 @@
 
         $ret = mysqli_query($con,$sql);
 
-        session_start();
+	session_start();
 	
 ?>
 <!doctype html>
@@ -227,8 +227,8 @@
                                                       </a>
                                                   </div>
                                                   <div class="profile-detail mt-3">
-                                                  <h5><a href="../app/user-profile-edit.html">Panny Marco</a></h5>
-                                                  <p>pannymarco@gmail.com</p>
+                                                  <h5><a href="../app/user-profile-edit.html"><?php echo $_SESSION["username"] ?></a></h5>
+                                                  <p><?php echo $_SESSION["useremail"] ?></p>
                                                   </div>
                                                   <a href="auth-sign-in.html" class="btn btn-primary">Sign Out</a>
                                               </div>
