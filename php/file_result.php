@@ -34,7 +34,7 @@
             		else {
                 		move_uploaded_file($tmp_name, "/" . $username . "/upload/" . $name);
                 		echo "Stored in: " . "/upload/" . $name;
-				$sql="INSERT INTO filetbl VALUES(NULL,'".$name."','".$size."')";
+				$sql="INSERT INTO filetbl VALUES(NULL,'".$name."','".$size."' , '".$username."' )";
 		
 				$ret = mysqli_query($con,$sql);            
 				if($ret) {

@@ -1,10 +1,14 @@
 <?php
         $con=mysqli_connect("localhost","root","TEst!234","sqldb") or die("접속실패");
-        $sql="SELECT filename, filesize FROM filetbl";
+
+	session_start();
+
+	$username = $_SESSION["username"];
+
+        $sql="SELECT filename, filesize FROM filetbl where username = '$username' ";
 
         $ret = mysqli_query($con,$sql);
 
-	session_start();
 	
 ?>
 <!doctype html>
