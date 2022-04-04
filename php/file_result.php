@@ -3,6 +3,11 @@
 
 	$con=mysqli_connect("localhost","root","TEst!234","sqldb") or die("접속실패");
 
+	session_start();
+
+	$username=$_SESSION["username"];
+
+	echo $username;
 
 	if (isset($_FILES)) {
     		$file = $_FILES["file"];
@@ -23,11 +28,11 @@
             		echo "Type: " . $type . "<br>";
             		echo "Size: " . (int)($size / 1024 / 1024) . " Mb<br>";
             		echo "Stored in: " . $tmp_name;
-            		if (file_exists("/upload/" . $name)) {
+            		if (file_exists( "/" . $username . "/upload/" . $name)) {
                 		echo $name . " already exists. ";
             		}	
             		else {
-                		move_uploaded_file($tmp_name, "/upload/" . $name);
+                		move_uploaded_file($tmp_name, "/" . $username . "/upload/" . $name);
                 		echo "Stored in: " . "/upload/" . $name;
 				$sql="INSERT INTO filetbl VALUES(NULL,'".$name."','".$size."')";
 		
@@ -41,10 +46,12 @@
 	    			}
 	   		}
 ?>
+	<!--
 	<script>
 		alert('업로드 성공');
-                //location.href = "page-alexa.html";
+                location.href = "page-alexa.php";
 	</script>
+	--!>
 <?php
     	  }
 	}
