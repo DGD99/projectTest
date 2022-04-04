@@ -5,7 +5,9 @@ $con=mysqli_connect("localhost","root","TEst!234","sqldb") or die("접속실패"
 
         //echo "$useremail ,  $userpw";
 
-        $sql="SELECT useremail, userpw FROM jointest WHERE useremail='{$useremail}'"; 
+	session_start();
+
+        $sql="SELECT useremail, userpw, username FROM jointest WHERE useremail='{$useremail}'"; 
 
         $ret = mysqli_query($con,$sql);
 
@@ -23,12 +25,13 @@ $con=mysqli_connect("localhost","root","TEst!234","sqldb") or die("접속실패"
         echo "<h2> 로그인 처리 결과 </h2>";
 
         
-
 	if($row['userpw'] === $userpw ) {
                 echo "로그인  완료";
+		$_SESSION["username"]=$row['username'];
+		//echo $_SESSION["newsession"];
 ?>
 	<script>
-                location.href = "page-alexa.html";
+                location.href = "page-alexa.php";
 	</script>
 <?php
         }

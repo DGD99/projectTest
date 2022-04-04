@@ -4,6 +4,8 @@
 
         $ret = mysqli_query($con,$sql);
 
+        session_start();
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -92,7 +94,7 @@
                           <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                                   <li class="active">
                                           <a href="../backend/page-alexa.php">
-                                              <i class="las la-folder"></i><span>userid_folder</span>
+                                              <i class="las la-folder"></i><span><?php echo $_SESSION["username"]; ?></span>
                                           </a>
                                   </li>
                           </ul>
