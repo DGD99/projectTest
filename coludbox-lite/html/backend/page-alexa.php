@@ -472,33 +472,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mr-3">
-                                                        <a href="#"><i class="las la-file la-2x"></i></a>
-                                                    </div>
-                                                    Alexa.jpeg
-                                                </div>
-                                            </td>
-                                            <td>Me</td>
-                                            <td>jan 21, 2020 me</td>
-                                            <td>02 MB</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" id="dropdownMenuButton6" data-toggle="dropdown">
-                                                        <i class="ri-more-fill"></i>
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton6">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
 					<?php   // LOOP TILL END OF DATA
                                          while($rows=mysqli_fetch_assoc($ret))
                                         {
@@ -509,7 +482,8 @@
                                                     <div class="mr-3">
                                                         <a href="#"><i class="las la-file la-2x"></i></a>
                                                     </div>
-                                                    <?php echo $rows['filename'];?>
+						    <a href="download.php?filename=<?php echo $rows['filename'];?>" target="_blank"><?php echo $rows['filename'];?>
+                                                    </a>
                                                 </div>
                                             </td>
                                            <td>Me</td>
